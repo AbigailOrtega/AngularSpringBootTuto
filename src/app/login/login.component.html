@@ -1,6 +1,8 @@
+<small *ngIf='invalidLogin'>{{errorMessage}}</small>
+<div>
 User Name: <input type="text" name="username" [(ngModel)]="username"  > <!--value="{{username}}"-->
 <!--SE COLOCA EL NOMBRE DE LA PROPIEDAD A LA QUE SE HACE REFERENCIA Y FUE DECLARADA EN login.component-->
 Password : <input type="password" name="password" [(ngModel)]="password"> <!--3-->
-User Name: {{username}} <!--1-->
+<!--- User Name: {{username}}--> <!--1-->
 <button (click)=handleLogin()>Login</button><!--2-->
-
+</div>
