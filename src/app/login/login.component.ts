@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { invalid } from '@angular/compiler/src/render3/view/util';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,11 @@ export class LoginComponent implements OnInit {
   password= ''
   errorMessage='Invalid Crdentials'
   invalidLogin=false
-  constructor() { }
+
+  //Roouter
+  //Angular.giveMeRouter
+  //Depencecy Injection
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,6 +27,8 @@ export class LoginComponent implements OnInit {
    // console.log(this.username);
     //console.log(this.password);
     if(this.username==='in28minutess' && this.password==='dummy'){
+    //Redirect to welcome page
+    this.router.navigate(['welcome',this.username])/**Se pasa el parametro */
       this.invalidLogin=false
     }else{
       this.invalidLogin=true

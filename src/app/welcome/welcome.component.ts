@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 //import {  AppComponent } from '../app.component';/** imporntando una clase */
 
 @Component({
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-
-  constructor() { }
+    message='Some welcome Message'
+    name=''
+    //ActivatedRoute
+    constructor(private router:ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.message)
+    console.log(this.router.snapshot.params['name']) /** Con esto se cacha la variable del path*/
+    this.name=this.router.snapshot.params['name']
   }
 
 }

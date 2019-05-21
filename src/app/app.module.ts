@@ -7,19 +7,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
+import { ErrorComponent } from './error/error.component';
+import { ListTodosComponent } from './list-todos/list-todos.component';
 /**Aquí se agregan todos los modulos que se vayan agregando con el comando ng generate component <nombre>*/
-@NgModule({
-  declarations: [
+/**Cuando se construye una aplicacion angular se crean una serie de modulos */
+/**Unos modulos ya existen y solo hay que "importarlos" */
+/** Each directive that you create as part of the angular application are always associated with angular Module*/
+@NgModule({ /**la anotación indica que se trata de un modulo de angular*/
+  declarations: [/**Parte del modulo */
     AppComponent,
-    WelcomeComponent,
-    LoginComponent
+    WelcomeComponent,/** esto es un javascript modules */
+    LoginComponent, /** esto es un javascript modules */
+    ErrorComponent,/** esto es un javascript modules */
+    ListTodosComponent /** esto es un javascript modules */
   ],
-  imports: [
+  imports: [ /**los componentes necesitan esto para funcinar */
     BrowserModule,
     AppRoutingModule,
     FormsModule /***/
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] /** */
 })
-export class AppModule { }
+export class AppModule { } /**Al importar AppModule se puede hacer uso de todos los componentes */
