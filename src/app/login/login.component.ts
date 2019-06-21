@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -18,16 +19,19 @@ export class LoginComponent implements OnInit {
   //Roouter
   //Angular.giveMeRouter
   //Depencecy Injection
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+   private hardcodedAuthenticationService: HardcodedAuthenticationService) { }
 
-  ngOnInit() {
+  
+   ngOnInit() {
   }
 
   handleLogin(){
    // console.log(this.username);
     //console.log(this.password);
-    if(this.username==='in28minutess' && this.password==='dummy'){
-    //Redirect to welcome page
+   // if(this.username==='in28minutess' && this.password==='dummy'){
+   if(this.hardcodedAuthenticationService.authenticate(this.username,this.password)){ 
+   //Redirect to welcome page
     this.router.navigate(['welcome',this.username])/**Se pasa el parametro */
       this.invalidLogin=false
     }else{

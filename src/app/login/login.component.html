@@ -1,8 +1,11 @@
-<small *ngIf='invalidLogin'>{{errorMessage}}</small> <!--Sirve como un if si la condicion de la variable en ngif es true esta cosa aparece si no desaparece-->
+<h1>Login!</h1>
+<div class="container">
+<div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div> <!--Sirve como un if si la condicion de la variable en ngif es true esta cosa aparece si no desaparece-->
 <div>
 User Name: <input type="text" name="username" [(ngModel)]="username"  > <!--value="{{username}}"-->
 <!--SE COLOCA EL NOMBRE DE LA PROPIEDAD A LA QUE SE HACE REFERENCIA Y FUE DECLARADA EN login.component-->
 Password : <input type="password" name="password" [(ngModel)]="password"> <!--3-->
 <!--- User Name: {{username}}--> <!--1-->
-<button (click)=handleLogin()>Login</button><!--2--> <!---Este evento lanza la validacion-->
+<button (click)=handleLogin() class="btn btn-success">Login</button><!--2--> <!---Este evento lanza la validacion-->
+</div>
 </div>
