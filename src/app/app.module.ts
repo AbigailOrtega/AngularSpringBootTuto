@@ -11,6 +11,7 @@ import { ErrorComponent } from './error/error.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { LogoutComponent } from './logout/logout.component';
 /**Aquí se agregan todos los modulos que se vayan agregando con el comando ng generate component <nombre>*/
 /**Cuando se construye una aplicacion angular se crean una serie de modulos */
 /**Unos modulos ya existen y solo hay que "importarlos" */
@@ -21,7 +22,7 @@ import { FooterComponent } from './footer/footer.component';
     WelcomeComponent,/** esto es un javascript modules */
     LoginComponent, /** esto es un javascript modules */
     ErrorComponent,/** esto es un javascript modules */
-    ListTodosComponent, MenuComponent, FooterComponent /** esto es un javascript modules */
+    ListTodosComponent, MenuComponent, FooterComponent, LogoutComponent /** esto es un javascript modules */
   ],
   imports: [ /**los componentes necesitan esto para funcinar */
     BrowserModule,
