@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { WelcomeDataService } from '../service/service/data/welcome-data.service';
 //import {  AppComponent } from '../app.component';/** imporntando una clase */
 
 @Component({
@@ -9,14 +10,39 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
     message='Some welcome Message'
+    welcomeMessageFromService:string
     name=''
     //ActivatedRoute
-    constructor(private router:ActivatedRoute) { }
+    constructor(private service:WelcomeDataService,
+      private router:ActivatedRoute) { }
 
   ngOnInit() {
     console.log(this.message)
     console.log(this.router.snapshot.params['name']) /** Con esto se cacha la variable del path*/
     this.name=this.router.snapshot.params['name']
+  }
+
+  getWelcomeMessage(){
+    console.log(this.service.executeHelloWorldBeanService());
+    this.service.executeHelloWorldBeanService().subscribe(
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
+    );
+    console.log('last line of getWelcomeMessage')
+    /**
+     *  La subscripcion ocurre aquí
+     * llama asincronamente al servicio
+     *  */
+    //console.log("get welcome message");
+  }
+
+  handleSuccessfulResponse(response){
+   this.welcomeMessageFromService=response.message;
+    console.log(response.message);
+  }
+
+  handleErrorResponse(error){
+    this.welcomeMessageFromService=error.error.message
   }
 
 }

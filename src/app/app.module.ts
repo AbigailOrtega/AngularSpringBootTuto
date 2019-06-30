@@ -12,6 +12,7 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
+import { HttpClientModule } from '@angular/common/http';
 /**Aquí se agregan todos los modulos que se vayan agregando con el comando ng generate component <nombre>*/
 /**Cuando se construye una aplicacion angular se crean una serie de modulos */
 /**Unos modulos ya existen y solo hay que "importarlos" */
@@ -27,7 +28,8 @@ import { LogoutComponent } from './logout/logout.component';
   imports: [ /**los componentes necesitan esto para funcinar */
     BrowserModule,
     AppRoutingModule,
-    FormsModule /***/
+    FormsModule, /***/
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent] /** */
