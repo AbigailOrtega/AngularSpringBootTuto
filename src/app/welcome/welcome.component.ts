@@ -36,6 +36,23 @@ export class WelcomeComponent implements OnInit {
     //console.log("get welcome message");
   }
 
+
+  getWelcomeMessageWithParameter(){
+    
+    this.service.executeHellowWorldServiceWithPathVariable(this.name).subscribe(
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
+    );
+    console.log('last line of getWelcomeMessage')
+    /**
+     *  La subscripcion ocurre aquí
+     * llama asincronamente al servicio
+     *  */
+    //console.log("get welcome message");
+  }
+
+
+
   handleSuccessfulResponse(response){
    this.welcomeMessageFromService=response.message;
     console.log(response.message);

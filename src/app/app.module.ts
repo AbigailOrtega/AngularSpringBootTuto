@@ -35,3 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [AppComponent] /** */
 })
 export class AppModule { } /**Al importar AppModule se puede hacer uso de todos los componentes */
+ /**
+  * 
+  * 
+ */
