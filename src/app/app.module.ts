@@ -12,8 +12,9 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
+import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 /**Aquí se agregan todos los modulos que se vayan agregando con el comando ng generate component <nombre>*/
 /**Cuando se construye una aplicacion angular se crean una serie de modulos */
 /**Unos modulos ya existen y solo hay que "importarlos" */
@@ -32,7 +33,9 @@ import { TodoComponent } from './todo/todo.component';
     FormsModule, /***/
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true }
+  ],
   bootstrap: [AppComponent] /** */
 })
 export class AppModule { } /**Al importar AppModule se puede hacer uso de todos los componentes */
