@@ -6,6 +6,7 @@ User Name: <input type="text" name="username" [(ngModel)]="username"  > <!--valu
 <!--SE COLOCA EL NOMBRE DE LA PROPIEDAD A LA QUE SE HACE REFERENCIA Y FUE DECLARADA EN login.component-->
 Password : <input type="password" name="password" [(ngModel)]="password"> <!--3-->
 <!--- User Name: {{username}}--> <!--1-->
-<button (click)=handleLogin() class="btn btn-success">Login</button><!--2--> <!---Este evento lanza la validacion-->
+<!--- <button (click)=handleLogin() class="btn btn-success">Login</button>--><!--2--> <!---Este evento lanza la validacion-->
+<button (click)=handleBasicAuthLogin() class="btn btn-success">Login</button><!--2--> <!---Este evento lanza la validacion-->
 </div>
 </div>

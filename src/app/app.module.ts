@@ -34,6 +34,7 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     HttpClientModule
   ],
   providers: [
+    /**la siguiente linea sirver para interceptar todas las peticiones y hacer la autenticacipon automaticamente */
     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true }
   ],
   bootstrap: [AppComponent] /** */
