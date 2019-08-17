@@ -1,0 +1,1 @@
+export const API_URL: String = 'http://localhost:8456'
