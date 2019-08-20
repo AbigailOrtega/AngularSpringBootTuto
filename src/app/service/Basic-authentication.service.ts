@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { API_URL } from '../app.constants';
 export const TOKEN ='token';
 export const AUTHENTICATED_USER='authenticaterUser';
 
@@ -43,7 +44,7 @@ export class BasicAuthenticationService {
       Autorization: basicAuthHeaderString,
       Accept:'*'
       })*/
-    return this.http.get<AuthenticationBean>(`http://localhost:8456/basicauth`,httpOptions).pipe(
+    return this.http.get<AuthenticationBean>(`${API_URL}/basicauth`,httpOptions).pipe(
       map(
         data => {
           sessionStorage.setItem(AUTHENTICATED_USER,username); /*Asi se guardan datos en session */
@@ -61,7 +62,7 @@ export class BasicAuthenticationService {
         return sessionStorage.getItem(TOKEN);
     }
     
-    isUserLoggedIn() {
+    isUserLoggedIn() {  
      let user= sessionStorage.getItem(AUTHENTICATED_USER)
      return !(user ===null)
     }
